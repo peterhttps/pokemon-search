@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticProps, GetServerSideProps, GetStaticPaths } from 'next';
 import axios from 'axios';
+import Head from 'next/head'
 
 import { Container, PokemonBox, PokemonStats, PokemonTypes, PokemonColors } from '../src/styles/pages/PokemonPage/styles';
 
@@ -14,13 +15,16 @@ function PokemonPage({ result }) {
 
   return (
     <Container>
+      <Head>
+        <title>Pokémon Search - {result.name.charAt(0).toUpperCase() + result.name.slice(1)}</title>
+      </Head>
       <PokemonBox>
         <span>#{result.id}</span>
         <h1>{result.name.charAt(0).toUpperCase() + result.name.slice(1)}</h1>
         <img src={result.sprites.front_default}  alt="a"/>
         <PokemonStats>
             {result.stats.map(stat => (
-                <div>
+                <div key={stat.stat_name}>
                     <h3>{stat.stat.name}</h3>
                     <p>{stat.base_stat}</p>
                 </div>
@@ -28,7 +32,7 @@ function PokemonPage({ result }) {
         </PokemonStats>
         <PokemonTypes>
             {result.types.map(type => (
-                <PokemonColors color={types[type.type.name]}>
+                <PokemonColors color={types[type.type.name]} key={type.type.name}>
                     <h2>{type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}</h2>
                 </PokemonColors>
             ))}

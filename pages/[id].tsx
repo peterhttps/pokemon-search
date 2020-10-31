@@ -19,7 +19,11 @@ function PokemonPage({ result }) {
         <title>Pokémon Search - {result.name.charAt(0).toUpperCase() + result.name.slice(1)}</title>
         <meta name="description" content={result.name} />
         <meta property="og:image" content={result.sprites.front_default} />
+        <meta property="og:type" content="website" />
 
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
       </Head>
       <PokemonBox>
         <span>#{result.id}</span>

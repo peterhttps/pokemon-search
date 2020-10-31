@@ -17,9 +17,7 @@ function PokemonPage({ result }) {
     <Container>
       <Head>
         <title>Pokémon Search - {result.name.charAt(0).toUpperCase() + result.name.slice(1)}</title>
-        <meta name="description" content={result.name} />
-        <meta property="og:image" itemProp="image" content="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png" />
-       
+        <meta name="description" content={result.name} />       
       </Head>
       <PokemonBox>
         <span>#{result.id}</span>

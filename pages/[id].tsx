@@ -17,7 +17,8 @@ function PokemonPage({ result }) {
     <Container>
       <Head>
         <title>Pokémon Search - {result.name.charAt(0).toUpperCase() + result.name.slice(1)}</title>
-        <meta name="description" content="Free Web tutorials for HTML and CSS" />
+        <meta name="description" content={result.name} />
+        <meta property="og:image" content={result.sprites.front_default} />
 
       </Head>
       <PokemonBox>

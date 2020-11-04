@@ -64,7 +64,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       paths: [
           {params: { id: '1' }},
       ],
-      fallback: true,
+      fallback: false,
     }   
 }
 

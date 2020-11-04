@@ -25,14 +25,5 @@ function Home() {
 }
 
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  
-    return {
-      props: { 
-
-       },
-    }   
-}
-
 export default Home;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps, GetServerSideProps, GetStaticPaths } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import axios from 'axios';
 import Head from 'next/head'
 
@@ -25,7 +25,7 @@ function PokemonPage({ result }) {
         <img src={result.sprites.front_default}  alt="a"/>
         <PokemonStats>
             {result.stats.map(stat => (
-                <div key={stat.stat_name}>
+                <div key={stat.stat.name}>
                     <h3>{stat.stat.name}</h3>
                     <p>{stat.base_stat}</p>
                 </div>
